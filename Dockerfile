@@ -6,10 +6,7 @@ RUN apt-get update \
  && echo 'deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main' >> /etc/apt/sources.list \
  && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CB64A157 \
  && echo "deb http://ppa.launchpad.net/groonga/ppa/ubuntu bionic main" >> /etc/apt/sources.list \
- && echo "deb-src http://ppa.launchpad.net/groonga/ppa/ubuntu bionic main"  >> /etc/apt/sources.list \
- && echo "deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> /etc/apt/sources.list \
- && echo "deb http://archive.ubuntu.com/ubuntu bionic-security main restricted universe multiverse" >> /etc/apt/sources.list \
- && echo "deb http://archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse" >> /etc/apt/sources.list \
+ && echo "deb-src http://ppa.launchpad.net/groonga/ppa/ubuntu bionic main"  >> /etc/apt/sources.list
 
 FROM ubuntu:bionic-20181204
 
