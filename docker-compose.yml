@@ -12,9 +12,7 @@ services:
       - DB_PASS=
       - DB_NAME=
       - DB_TEMPLATE=
-  
-      - DB_EXTENSION=
-  
+      - DB_EXTENSION=pgroonga
       - REPLICATION_MODE=
       - REPLICATION_USER=
       - REPLICATION_PASS=
