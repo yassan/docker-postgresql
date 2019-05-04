@@ -20,7 +20,7 @@ services:
       - REPLICATION_PASS=
       - REPLICATION_SSLMODE=
     volumes:
-      - /srv/docker/postgresql:/var/lib/postgresql
+      - ./data:/var/lib/postgresql
   pgadmin:
     restart: unless-stopped
     image: dpage/pgadmin4:4
