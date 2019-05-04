@@ -31,8 +31,7 @@ COPY --from=add-apt-repositories /etc/apt/trusted.gpg /etc/apt/trusted.gpg
 COPY --from=add-apt-repositories /etc/apt/sources.list /etc/apt/sources.list
 
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y acl sudo \
-      postgresql-${PG_VERSION}-pgroonga groonga-tokenizer-mecab\
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y acl sudo postgresql-${PG_VERSION}-pgroonga groonga-tokenizer-mecab\
       postgresql-client-${PG_VERSION} postgresql-contrib-${PG_VERSION} \
  && ln -sf ${PG_DATADIR}/postgresql.conf /etc/postgresql/${PG_VERSION}/main/postgresql.conf \
  && ln -sf ${PG_DATADIR}/pg_hba.conf /etc/postgresql/${PG_VERSION}/main/pg_hba.conf \
