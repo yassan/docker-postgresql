@@ -10,7 +10,14 @@ RUN apt-get update \
 
 FROM ubuntu:bionic-20181204
 
-LABEL maintainer="yassan0627@gmail.com"
+ARG GIT_REVITION=unkown
+ARG GIT_ORIGIN=unkown
+ARG IMAGE_NAME=unkown
+
+LABEL maintainer="yassan0627@gmail.com" \
+      git-revision=$GIT_REVISION \
+      git-origin=$GIT_ORIGIN \
+      image-name=$IMAGR_NAME
 
 ENV PG_APP_HOME="/etc/docker-postgresql" \
     PG_VERSION=10 \
