@@ -1,21 +1,28 @@
-PostgreSQL:
-  restart: always
-  image: sameersbn/postgresql:10-1
-  ports:
-    - "5432:5432"
-  environment:
-    - DEBUG=false
-
-    - DB_USER=
-    - DB_PASS=
-    - DB_NAME=
-    - DB_TEMPLATE=
-
-    - DB_EXTENSION=
-
-    - REPLICATION_MODE=
-    - REPLICATION_USER=
-    - REPLICATION_PASS=
-    - REPLICATION_SSLMODE=
-  volumes:
-    - /srv/docker/postgresql:/var/lib/postgresql
+version: '3'
+services:
+  postgresql:
+    restart: always
+    image: yassan/postgresql:10-pgadmin4
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env_db_pg
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro 
+      - ./data:/var/lib/postgresql
+  pgadmin:
+    restart: unless-stopped
+    image: dpage/pgadmin4:4
+    env_file:
+      - .env_pgadmin4
+    volumes:
+       - /etc/localtime:/etc/localtime:ro
+       - /etc/timezone:/etc/timezone:ro 
+       - ./data-pgadmin:/root/.pgadmin
+    ports:
+      - "${PGADMIN_LISTEN_PORT}:80"
+    links:
+      - postgresql
+    depends_on:
+      - postgresql

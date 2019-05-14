@@ -1,0 +1,5 @@
+data/*
+data-admin/*
+*.swp
+.env_db_pg
+.env_pgadmin4
