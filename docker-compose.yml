@@ -12,7 +12,7 @@ services:
       - /etc/timezone:/etc/timezone:ro 
       - ./data:/var/lib/postgresql
   pgadmin:
-    restart: unless-stopped
+    restart: always
     image: dpage/pgadmin4:4
     env_file:
       - .env_pgadmin4
@@ -21,7 +21,7 @@ services:
        - /etc/timezone:/etc/timezone:ro 
        - ./data-pgadmin:/root/.pgadmin
     ports:
-      - "${PGADMIN_LISTEN_PORT}:80"
+      - "10083:80"
     links:
       - postgresql
     depends_on:
